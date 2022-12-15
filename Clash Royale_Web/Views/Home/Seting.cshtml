@@ -1,0 +1,130 @@
+﻿@model AllPlayData
+@{
+    string[] listLang = { "forest", "desert", "hell" };
+    string[] allMap = { "random", "forest", "desert", "hell" };
+}allMap
+@*col-mq-4-колонка
+    offset-md-4отступ*@
+<div class="setting-panel">
+    <div class="row">
+        <div class="col-mq-4 offset-md-4 settings">
+            <form post="post" asp-controller="Home" asp-action="Seting">
+                <div class="language-select">
+                    <p> @Model.languagePlay.ConfigLange</p>
+                    <div class="chose-language">
+                        @foreach (string list in listLang)
+                        {
+                            @if (Model.languagePlay.ConfigLange == list)
+                            {
+                                <div class="lang active">
+                                    <input name="language" type="submit" value="@list" />
+                                    <img src="~/img/photo_2022-06-22_22-42-42.jpg" />
+                                </div>
+                            }
+                            else
+                            {
+                                <div class="lang">
+                                    <input name="language" type="submit" value="@list" />
+                                </div>
+                            }
+                        }
+                    </div>
+                </div>
+                <div class="map-select">
+                    @*изменять языки*@
+                    <p>@Model.languagePlay.ConfigMap</p>
+                    <img src="~/img/photo_2022-06-22_22-42-42.jpg" />
+                    <div class="chose-map">
+                        <div class="list-map">
+                            @foreach (string listss in allMap)
+                            {
+                                @*<div class="slides @listss">    </div>*@
+                                @if (Model.PlayerMap == listss)
+                                {
+
+                                    <input type="submit" name="paont" id="@listss" />
+
+                                }
+                                else
+                                {
+
+                                    <input name="map" type="submit" value="@listss" />
+
+                                }
+
+                            }
+
+                            <div class="slider">
+                                @foreach (string listMAPP in allMap)
+                                {
+                                    <div class="slides @listMAPP">
+                                        @if (Model.languagePlay.ConfigLange == listMAPP)
+                                        {
+                                            <button class="map-active" name="map" type="submit" value="@listMAPP"></button>
+                                            <img src="~/img/photo_2022-06-22_22-42-42.jpg" />
+
+                                        }
+                                        else
+                                        {
+                                            <button name="map" type="submit" value="@listMAPP"></button>
+                                        }
+                                    </div>
+                                }
+                            </div>
+                            <div class="controls">
+                                @foreach (string listMapp in allMap)
+                                {
+                                    <label for="@listMapp"></label>
+                                }
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </form>
+            <div class="mainback">
+                <a class="nav-link" asp-controller="Home" asp-action="Index">@Model.languagePlay.ConfigBack</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+@*<input name="language" type="submit" value="Ru" />
+    <input name="language" type="submit" value="En" />*@
+
+<!--<p>Model.languagePlay.ConfigMap</p>
+foreach (var item in allMap)
+{
+    <input name="map" type="submit" value="item" />
+}
+<input name="map" type="submit" value="1" />-->
+@*<input name="map" type="submit" value="2" />*@
+<!--</div>
+</form>-->
+@*<h1 class="text-center">Настройка</h1>
+    <p>@Model.ConfigLange</p>*@
+
+@*//играет большую роль*@
+<!--<a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">@Model.languagePlay.ConfigBack</a>
+
+    </div>
+</div>
+
+<!--<form post="post" asp-controller="Home" asp-action="Seting">
+    <h1> Model.languagePlay.ConfigLange</h1>
+    <input name="language" type="submit" value="Ru" />
+    <input name="language" type="submit" value="En" />
+
+
+    <input name="map" type="submit" value="1" />-->
+<!--@*<input name="map" type="submit" value="2" />*@-->
+       <!--<!--</form>-->
+<!--@*<h1 class="text-center">Настройка</h1>
+        <p>@Model.ConfigLange</p>*@
+
+    @*//играет большую роль*@
+
+</div>-->
